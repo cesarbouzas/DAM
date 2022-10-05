@@ -13,7 +13,7 @@ public class FiltroEmpieza implements FilenameFilter{
     String letra;
     
     FiltroEmpieza(String s){
-        this.letra=s;
+        this.letra=s.trim();   
     }
 
     @Override
