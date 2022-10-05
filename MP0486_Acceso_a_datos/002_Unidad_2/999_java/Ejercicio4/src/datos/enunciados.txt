@@ -1,0 +1,31 @@
+ENUNCIADO 1: Introducción a la clase File. Mostrar información de un fichero
+Escribe un programa que obtenga información un fichero dado , en este caso “fichero.txt”.
+ENUNCIADO 2: Mostrar información de un fichero o directorio. Utilizando list.
+Como sabes para instanciar un objeto de clase File este puede ser un fichero o un directorio.Escribe
+un programa que obtenga información diferente según trabajemos con un fichero o un directorio.
+Si es un fichero obtén su nombre indicando la ruta relativa y tamaño.
+Si es un directorio lista los ficheros que contiene
+Acceso
+ENUNCIADO 3: List vs ListFiles()
+En el ejercicio anterior hemos mostrado los ejercicios utilizando la clase file que devuelve un array
+de Strings.
+Modifica el programa anterior para que muestre la información de un directorio/carpeta pero
+utilizando el método listFiles(). Observa que en este caso devuelve un array de ficheros.
+ENUNCIADO 4: FilenameFilter()
+Escribe un programa que permita visualizar todos los archivos que empiecen con la letra “E” en un
+directorio concreto. Muestra de cada uno de ellos su nombre y tamaño.
+Recuerda que primero debes crear el filtro y a continuación aplicarlo al método list o listfiles.
+ENUNCIADO 5: Crear ficheros/directorios. Mover Ficheros
+Crea una estructura de directorios de al menos 3 niveles.
+Crearemos el directorio Deporte (al mismo nivel que el src). Dentro de deporte crearemos los
+directorios Individual y Colectivo. Dentro de individual crearemos el directorio/carpeta Tenis y
+dentro de colectivo crearemos las carpetas Baloncesto y Futbol.
+A mayores crearemos 2 ficheros en la carpeta individual con extensión .java, 1 fichero en la carpeta
+colectivo con extensión .java, 1 fichero en la carpeta tenis con extensión .txt, 3 ficheros en la
+carpeta baloncesto 1 con extensión java y 2 con extensión txt.
+Finalmente movemos 1 de los ficheros con extensión txt de la carpeta baloncesto a la carpeta tenis.
+Una vez creada la estructura moverás 1 de esos 2 ficheros a la carpeta que quieras en el segundo
+nivel. Utiliza el método renameTo (origen.renameTo(destino)
+ENUNCIADO 6: Busqueda Recursiva
+Realiza un programa para que pasándole un directorio raiz muestre todos los ficheros que contiene
+la estructura. Puedes probar con la carpeta “Deporte”.

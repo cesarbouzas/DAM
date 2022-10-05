@@ -24,10 +24,7 @@ Si es un directorio lista los ficheros que contiene
         File d=new File("./src/datos");
         obtenerInformacion(f1);
         obtenerInformacion(d);
-         obtenerInformacion(f2);
-        
-        
-        
+        obtenerInformacion(f2);
     }
    
     public static void obtenerInformacion(File f){
@@ -50,8 +47,8 @@ Si es un directorio lista los ficheros que contiene
         System.out.println(f.getPath()+"....... Nombre "+f.getName()+"--->"+f.length()+" bytes");
     }
     public static void obtenerInfoDir(File f){
-        List.of(f.listFiles()).stream()
-                .forEach(x->obtenerInfoFile(x));
+        List.of(f.list()).stream()
+                .forEach(x->obtenerInfoFile(new File(f.getPath(),x)));
         
     }
 }
