@@ -50,6 +50,28 @@ public class DirectorioTools {
             }
         return null;
     }
+    
+    
+    
+    
+    
+    public static void moveFile(String r,File or,File dest){
+        if (or.isDirectory()&&dest.isDirectory()) {
+             File filOr = new File(or.getPath()+r);
+             File filDest=new File(dest.getPath()+r);   
+             if(filOr.exists()){ 
+                if (!filDest.exists()&& filOr.renameTo(filDest)) {
+                         System.out.println("Fichero movido: "+showCanonicalPath(filDest));    
+                } else if (filDest.exists()) {
+                         System.err.println("Fichero no movido ya existe en destino: "+showCanonicalPath(filDest));
+                         
+                     }
+            } else {
+                System.err.println("Error con la ruta insertada : "+showCanonicalPath(or));
+            }
+       
+    }
+    }
 
     public static String showCanonicalPath(File f){
         try {

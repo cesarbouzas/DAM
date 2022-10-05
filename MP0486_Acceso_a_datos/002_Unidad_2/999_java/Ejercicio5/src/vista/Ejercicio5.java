@@ -30,11 +30,12 @@ public class Ejercicio5 {
      
      File archivoJava1=new File("./archivo1.java");
      File archivoJava2=new File("./archivo2.java");
-     File archivoJava3=new File("./archivo3.java");
+   
      
      File archivoTxt1=new File("./archivo1.txt");
      File archivoTxt2=new File("./archivo2.txt");
      
+  
      
      currentDir=currentDir.getAbsoluteFile();
      System.out.println(currentDir);
@@ -44,7 +45,7 @@ public class Ejercicio5 {
      
      tenis=DirectorioTools.makeDirectory(tenis.getPath(),individual);
      baloncesto=DirectorioTools.makeDirectory(baloncesto.getPath(),colectivo);
-     futbol=DirectorioTools.makeDirectory(futbol.getPath(),colectivo);
+     DirectorioTools.makeDirectory(futbol.getPath(),colectivo);
      
      DirectorioTools.makeFile(archivoJava1.getPath(), individual);
      DirectorioTools.makeFile(archivoJava2.getPath(), individual);
@@ -56,6 +57,10 @@ public class Ejercicio5 {
      DirectorioTools.makeFile(archivoJava1.getPath(), baloncesto);
      DirectorioTools.makeFile(archivoTxt1.getPath(), baloncesto);
      DirectorioTools.makeFile(archivoTxt2.getPath(), baloncesto);
+     
+     
+     DirectorioTools.moveFile(archivoTxt2.getPath(), baloncesto, tenis); 
+     DirectorioTools.moveFile(archivoTxt1.getPath(), baloncesto, colectivo);
     }
     
 }
