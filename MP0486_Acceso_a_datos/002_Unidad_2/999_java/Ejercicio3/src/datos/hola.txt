@@ -1,0 +1,5 @@
+ENUNCIADO 3: List vs ListFiles()
+En el ejercicio anterior hemos mostrado los ejercicios utilizando la clase file que devuelve un array
+de Strings.
+Modifica el programa anterior para que muestre la información de un directorio/carpeta pero
+utilizando el método listFiles(). Observa que en este caso devuelve un array de ficheros.

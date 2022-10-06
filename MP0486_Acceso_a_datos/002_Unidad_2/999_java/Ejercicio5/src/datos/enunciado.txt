@@ -1,0 +1,11 @@
+Crea una estructura de directorios de al menos 3 niveles.
+Crearemos el directorio Deporte (al mismo nivel que el src). Dentro de deporte crearemos los
+directorios Individual y Colectivo. Dentro de individual crearemos el directorio/carpeta Tenis y
+dentro de colectivo crearemos las carpetas Baloncesto y Futbol.
+A mayores crearemos 2 ficheros en la carpeta individual con extensión .java, 1 fichero en la carpeta
+colectivo con extensión .java, 1 fichero en la carpeta tenis con extensión .txt, 3 ficheros en la
+carpeta baloncesto 1 con extensión java y 2 con extensión txt.
+Finalmente movemos 1 de los ficheros con extensión txt de la carpeta baloncesto a la carpeta tenis.
+Una vez creada la estructura moverás 1 de esos 2 ficheros a la carpeta que quieras en el segundo
+nivel. Utiliza el método renameTo (origen.renameTo(destino)
+
