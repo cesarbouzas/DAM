@@ -1,0 +1,3 @@
+Modifica el ejercicio del enunciado 5, para que borre la carpeta raiz antes de realizar el proceso de
+creación de las carpetas.
+
