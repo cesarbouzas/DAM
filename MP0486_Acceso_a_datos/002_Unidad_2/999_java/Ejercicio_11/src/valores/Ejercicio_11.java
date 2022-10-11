@@ -1,0 +1,41 @@
+package valores;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+//ENUNCIADO 11: Leer/escribir ficheros binarios
+//Escribe un programa que permita crear un fichero a partir de un fichero origen. Elige un fichero
+//binario (ejem: una imagen) para realizar la prueba. Todos los ficheros estarán en el package
+//“Datos”. El proceso de lectura/escritura (I/O) de los ficheros lo harás utilizando las clases
+//FileInputStream y FileOutputStream.
+public class Ejercicio_11 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int b;
+        File[] ficheros = new File("./src/datos").listFiles();
+        System.out.println("nada"+ficheros[0].getPath());
+        File origen = ficheros[0];
+        
+        try (
+            FileInputStream fIS = new FileInputStream(origen);  
+            FileOutputStream fOS = new FileOutputStream(new File("./src/datos/copia.jpg"));
+                ) {
+
+            b = fIS.read();
+            while (b != -1) {
+       
+                fOS.write(b);
+                b=fIS.read();
+            }
+        } catch (IOException e) {
+            System.err.println("Error de Ficheros");
+        } finally {
+        }
+    }
+
+}
