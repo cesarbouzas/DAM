@@ -37,7 +37,9 @@ public class Ejercicio_11 {
         File origen = ficheros[0];
 
         try (
-                 FileInputStream fIS = new FileInputStream(origen);  FileOutputStream fOS = new FileOutputStream(new File("./src/datos/copia." + extension));) {
+                 FileInputStream fIS = new FileInputStream(origen);  
+                FileOutputStream fOS = new FileOutputStream(new File("./src/datos/copia." + extension));) 
+        {
 
             b = fIS.read();
             while (b != -1) {
