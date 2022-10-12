@@ -49,7 +49,7 @@ public class Ejercicio_12 {
         }
         try (
                  FileOutputStream fOS = new FileOutputStream(archivo);  
-                var dOS = new DataOutputStream(fOS);) {
+                   var dOS = new DataOutputStream(fOS);) {
             for (Person person : persons) {
 
                 dOS.writeUTF(person.getName());
