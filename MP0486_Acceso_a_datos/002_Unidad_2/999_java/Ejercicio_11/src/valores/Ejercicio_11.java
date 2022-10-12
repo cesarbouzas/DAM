@@ -17,25 +17,36 @@ public class Ejercicio_11 {
      */
     public static void main(String[] args) {
         int b;
-        File[] ficheros = new File("./src/datos").listFiles();
-        System.out.println("nada"+ficheros[0].getPath());
+        String extension;
+        File raiz = new File("./src/datos");
+        File[] ficheros;
+
+        Filtro filtroNombre = new Filtro("copia");
+
+        ficheros = raiz.listFiles(filtroNombre);
+        if (ficheros.length == 1 && ficheros[0].isFile()) {
+            ficheros[0].delete();
+        }
+        ficheros = raiz.listFiles();
+        extension = ficheros[0].getPath().split("[.]")[0];
+        System.out.println("0-->" + extension);
+        extension = ficheros[0].getPath().split("[.]")[1];
+        System.out.println("1-->" + extension);
+        extension = ficheros[0].getPath().split("[.]")[2];
+        System.out.println("2-->" + extension);
         File origen = ficheros[0];
-        
+
         try (
-            FileInputStream fIS = new FileInputStream(origen);  
-            FileOutputStream fOS = new FileOutputStream(new File("./src/datos/copia.jpg"));
-                ) {
+                 FileInputStream fIS = new FileInputStream(origen);  FileOutputStream fOS = new FileOutputStream(new File("./src/datos/copia." + extension));) {
 
             b = fIS.read();
             while (b != -1) {
-       
                 fOS.write(b);
-                b=fIS.read();
+                b = fIS.read();
             }
         } catch (IOException e) {
             System.err.println("Error de Ficheros");
         } finally {
         }
     }
-
 }
