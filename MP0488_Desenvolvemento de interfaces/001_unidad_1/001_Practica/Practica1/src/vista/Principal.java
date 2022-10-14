@@ -6,7 +6,7 @@ package vista;
 
 
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -18,9 +18,16 @@ public class Principal extends javax.swing.JDialog {
      * Creates new form Principal
      */
     public Principal() {
+       
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.ico")).getImage() );
-        
+       
+    }
+    
+    public void stateChanged(ChangeEvent e){
+        if(jRadioButton3.isSelected()){
+            jSpinner4.setEnabled(true);
+        }
     }
 
     /**
