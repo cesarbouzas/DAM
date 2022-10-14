@@ -4,17 +4,23 @@
  */
 package vista;
 
+
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+
 /**
  *
  * @author Usuario
  */
-public class Principal extends javax.swing.JFrame {
+public class Principal extends javax.swing.JDialog {
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.ico")).getImage() );
+        
     }
 
     /**
@@ -37,18 +43,22 @@ public class Principal extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jSlider1 = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        tipoCocina = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jSpinner4 = new javax.swing.JSpinner();
         jSpinner5 = new javax.swing.JSpinner();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Reservas Salón Habana");
+        setModal(true);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SALÓN HABANA");
+        jLabel1.setToolTipText("Formulario de reservas para el salón Habana");
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario Reservas "));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -70,36 +80,43 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        tipo.add(jRadioButton1);
         jRadioButton1.setText("Banquete");
+        jRadioButton1.setToolTipText("Selecciona si desea banquete");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
             }
         });
 
+        tipo.add(jRadioButton2);
         jRadioButton2.setText("Jornada");
+        jRadioButton2.setToolTipText("Selecciona si deseas Jornada");
 
+        tipo.add(jRadioButton3);
         jRadioButton3.setText("Congreso");
+        jRadioButton3.setToolTipText("Selecciona si deseas Congreso");
 
         jSlider1.setMajorTickSpacing(100);
         jSlider1.setMaximum(250);
         jSlider1.setMinorTickSpacing(50);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
-        jSlider1.setToolTipText("Asistentes");
+        jSlider1.setToolTipText("Indica los asistentes aproximados");
         jSlider1.setValue(10);
         jSlider1.setAutoscrolls(true);
         jSlider1.setBorder(javax.swing.BorderFactory.createTitledBorder("Asistentes"));
         jSlider1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        tipoCocina.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Bufé", "Carta", "Pedir cita con el Chef", "Menú", "No precisa" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList1.setVisibleRowCount(2);
-        jScrollPane1.setViewportView(jList1);
+        tipoCocina.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tipoCocina.setToolTipText("Indica el tipo de cocina");
+        tipoCocina.setVisibleRowCount(2);
+        jScrollPane1.setViewportView(tipoCocina);
 
         jLabel7.setText("Tipo de Cocina");
 
@@ -107,6 +124,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setEnabled(false);
 
         jToggleButton1.setText("Requerir habitaciones");
+        jToggleButton1.setToolTipText("Pulsa si necesitas Habitaciones para los asistentes");
         jToggleButton1.setEnabled(false);
 
         jSpinner4.setToolTipText("Días necesarios");
@@ -114,14 +132,18 @@ public class Principal extends javax.swing.JFrame {
         jSpinner4.setEnabled(false);
 
         jSpinner5.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
+        jSpinner5.setToolTipText("Fecha para la reserva");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,15 +176,15 @@ public class Principal extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jRadioButton3)))
                                         .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(jToggleButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -190,17 +212,21 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jLabel7)
-                        .addGap(47, 47, 47))
+                        .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jToggleButton1)
                     .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,40 +243,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -258,11 +251,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JSpinner jSpinner5;
@@ -270,5 +263,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.ButtonGroup tipo;
+    private javax.swing.JList<String> tipoCocina;
     // End of variables declaration//GEN-END:variables
 }
