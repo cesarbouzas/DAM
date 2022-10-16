@@ -73,7 +73,7 @@ public class Lenguaje {
     }
     public static char ramdomChar(){
         int ramdomInt=(int)(97+Math.random()*(122-97));
-        System.out.println(ramdomInt+" ----> "+(char)(ramdomInt));
+        //System.out.println(ramdomInt+" ----> "+(char)(ramdomInt));
         return (char)ramdomInt;
     }
     
