@@ -22,10 +22,14 @@ public class Lenguaje {
      */
     public static void main(String[] args) {
         String s;
-        s=createWord(Integer.parseInt(args[0]));
-        File f=createFile(args[1]);
-        writeFile(f, s);
-        System.out.println(s);
+
+        File f = createFile(args[1]);
+        int n = Integer.parseInt(args[0]);
+        for (int i = 0; i < n; i++) {
+            s = createWord();
+            writeFile(f, s);
+            System.out.println(s);
+        }
     }
     public static File createFile(String r){
         File f = new File(r);
@@ -33,14 +37,14 @@ public class Lenguaje {
         if (sOname.contains("win")) {
             if (!r.isEmpty()) {
                 f = new File(r.toLowerCase().replace("//", "\\"));
-
             } else {
                 f = new File("c:\\FicheroDeLenguaje.txt");
             }
         }
     return f;
     }
-    public static String createWord(int n){
+    public static String createWord(){
+        int n=1+(int)(Math.random()*8);
         String word="";
        for(int i=0 ;i<n;i++ ){
         word+=(ramdomChar());        
@@ -50,11 +54,13 @@ public class Lenguaje {
     }
     public static void writeFile(File f,String s){
         try 
-        (FileWriter fW=new FileWriter(f, true);
-                BufferedWriter bW=new BufferedWriter(fW))
-        
+        (
+          FileWriter fW=new FileWriter(f, true);
+          BufferedWriter bW=new BufferedWriter(fW);
+         )
+       
         {
-                bW.write(s);
+                bW.write(s+"\n");
         } catch (FileNotFoundException eFNFE ) {
             System.err.println("Fichero no encontrado");
             eFNFE.printStackTrace();
