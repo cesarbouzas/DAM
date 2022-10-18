@@ -10,14 +10,15 @@ import java.io.FilenameFilter;
  * @author cesar
  */
 public class  Filtro implements FilenameFilter {
-    private String name;
-    public Filtro(String name) {
-    this.name=name;
+    private String regExp;
+    public Filtro(String regExp) {
+    this.regExp=regExp;
     }
     
     @Override
     public boolean accept(File dir, String name) {
-        return dir.getName().equalsIgnoreCase(this.name);
+        System.out.println(dir.getName());
+        return name.startsWith(this.regExp);
         }
     }
 

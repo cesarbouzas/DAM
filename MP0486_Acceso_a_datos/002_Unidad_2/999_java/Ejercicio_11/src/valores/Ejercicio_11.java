@@ -3,6 +3,7 @@ package valores;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 
 //ENUNCIADO 11: Leer/escribir ficheros binarios
@@ -17,13 +18,18 @@ public class Ejercicio_11 {
      */
     public static void main(String[] args) {
         int b;
+        String regExp="copia.png";
         String extension;
         File raiz = new File("./src/datos");
+        System.out.println(raiz.getPath()+" es un directorio ->"+raiz.isDirectory());
         File[] ficheros;
-
-        Filtro filtroNombre = new Filtro("copia");
-
+        Filtro filtroNombre = new Filtro(regExp);//Aplico
         ficheros = raiz.listFiles(filtroNombre);
+        System.out.println("********Ficheros Filtrados nº = "+ficheros.length+"*************:");
+        for (File fichero : ficheros) {
+            System.out.println(fichero.getPath());
+        }
+        
         if (ficheros.length == 1 && ficheros[0].isFile()) {
             ficheros[0].delete();
         }
