@@ -15,7 +15,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.ico")).getImage() );
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.jpg")).getImage() );
          
     }
 

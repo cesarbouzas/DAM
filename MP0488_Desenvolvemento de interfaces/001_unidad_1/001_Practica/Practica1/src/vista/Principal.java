@@ -5,7 +5,7 @@
 package vista;
 
 
-import javax.swing.ImageIcon;
+
 import javax.swing.event.ChangeEvent;
 
 /**
@@ -20,13 +20,15 @@ public class Principal extends javax.swing.JDialog {
     public Principal() {
        
         initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.ico")).getImage() );
+//        ActionListener t=new TipoSelection();
+//        jRadioButton3.addActionListener(t);
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.jpg")).getImage() );
        
     }
     
     public void stateChanged(ChangeEvent e){
         if(jRadioButton3.isSelected()){
-            jSpinner4.setEnabled(true);
+            spnJornada.setEnabled(true);
         }
     }
 
@@ -39,7 +41,7 @@ public class Principal extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tipo = new javax.swing.ButtonGroup();
+        grpTipoEvento = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -52,9 +54,9 @@ public class Principal extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tipoCocina = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jSpinner4 = new javax.swing.JSpinner();
+        lblJornada = new javax.swing.JLabel();
+        btnHabitaciones = new javax.swing.JToggleButton();
+        spnJornada = new javax.swing.JSpinner();
         jSpinner5 = new javax.swing.JSpinner();
         jSeparator1 = new javax.swing.JSeparator();
 
@@ -87,7 +89,7 @@ public class Principal extends javax.swing.JDialog {
             }
         });
 
-        tipo.add(jRadioButton1);
+        grpTipoEvento.add(jRadioButton1);
         jRadioButton1.setText("Banquete");
         jRadioButton1.setToolTipText("Selecciona si desea banquete");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -96,13 +98,23 @@ public class Principal extends javax.swing.JDialog {
             }
         });
 
-        tipo.add(jRadioButton2);
+        grpTipoEvento.add(jRadioButton2);
         jRadioButton2.setText("Jornada");
         jRadioButton2.setToolTipText("Selecciona si deseas Jornada");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
-        tipo.add(jRadioButton3);
+        grpTipoEvento.add(jRadioButton3);
         jRadioButton3.setText("Congreso");
         jRadioButton3.setToolTipText("Selecciona si deseas Congreso");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jSlider1.setMajorTickSpacing(100);
         jSlider1.setMaximum(250);
@@ -127,16 +139,17 @@ public class Principal extends javax.swing.JDialog {
 
         jLabel7.setText("Tipo de Cocina");
 
-        jLabel8.setText("Jornadas");
-        jLabel8.setEnabled(false);
+        lblJornada.setText("Jornadas");
+        lblJornada.setToolTipText("");
+        lblJornada.setEnabled(false);
 
-        jToggleButton1.setText("Requerir habitaciones");
-        jToggleButton1.setToolTipText("Pulsa si necesitas Habitaciones para los asistentes");
-        jToggleButton1.setEnabled(false);
+        btnHabitaciones.setText("Requerir habitaciones");
+        btnHabitaciones.setToolTipText("Pulsa si necesitas Habitaciones para los asistentes");
+        btnHabitaciones.setEnabled(false);
 
-        jSpinner4.setToolTipText("Días necesarios");
-        jSpinner4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jSpinner4.setEnabled(false);
+        spnJornada.setToolTipText("Días necesarios");
+        spnJornada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        spnJornada.setEnabled(false);
 
         jSpinner5.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
         jSpinner5.setToolTipText("Fecha para la reserva");
@@ -186,11 +199,11 @@ public class Principal extends javax.swing.JDialog {
                     .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jLabel8)
+                        .addComponent(lblJornada)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spnJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
-                        .addComponent(jToggleButton1)
+                        .addComponent(btnHabitaciones)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -227,9 +240,9 @@ public class Principal extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblJornada)
+                    .addComponent(btnHabitaciones)
+                    .addComponent(spnJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
@@ -247,29 +260,56 @@ public class Principal extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        if (this.isEnabled()) {
+            lblJornada.setEnabled(false);
+            spnJornada.setEnabled(false);
+            btnHabitaciones.setEnabled(false);
+        }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        if (this.isEnabled()) {
+            lblJornada.setEnabled(true);
+            spnJornada.setEnabled(true);
+            btnHabitaciones.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        if (this.isEnabled()) {
+            lblJornada.setEnabled(false);
+            spnJornada.setEnabled(false);
+            btnHabitaciones.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+//  class TipoSelection implements ActionListener{
+//      public void actionPerformed(ActionEvent ex){
+//          String choice=grpTipoEvento.getSelection().getActionCommand();
+//          System.out.println(choice);
+//      }
+//  }
+//  
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnHabitaciones;
+    private javax.swing.ButtonGroup grpTipoEvento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JSpinner jSpinner4;
     private javax.swing.JSpinner jSpinner5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.ButtonGroup tipo;
+    private javax.swing.JLabel lblJornada;
+    private javax.swing.JSpinner spnJornada;
     private javax.swing.JList<String> tipoCocina;
     // End of variables declaration//GEN-END:variables
 }
