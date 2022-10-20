@@ -14,16 +14,19 @@ public class Colaborar {
      */
     public static void main(String[] args) {
        Process newProcess;
-       File f=new File("./src/vista/Lenguaje.txt");
+       File f=new File("");
+        System.out.println(f.getParentFile().getAbsolutePath());
+       
+        
          try{
             for (int i = 1; i <=10; i++){
                 
                 newProcess = Runtime.getRuntime().exec("java -jar "
                         +"Lenguaje.jar " 
                         + (i*10)
-                        + f.getPath());
+                        + f.getCanonicalPath());
                 
-                System.out.println("Creado el proceso " + i +"en archivo "+f.getAbsolutePath());
+                System.out.println("Creado el proceso " + i +"en archivo "+f.getCanonicalPath());
                 
                 //Mostramos en consola que hemos creado otro proceso               
             }
