@@ -1,6 +1,8 @@
 
 package vista;
 
+import java.io.File;
+
 /**
  *
  * @author cesar bouzas
@@ -12,16 +14,20 @@ public class Colaborar {
      */
     public static void main(String[] args) {
        Process newProcess;
+       File f=new File("./src/vista/Lenguaje.txt");
          try{
-            for (int i = 1; i <=11; i++){
-                newProcess = Runtime.getRuntime().exec("java -jar "
-                        +"lenguaje.jar " 
-                        + (i*10)
-                        + " C:/Users/Usuario/Desktop/html_public/DAM/MP0490_Programacion_servicios_y_procesos/001_unidad_1/001_practica/Lenguaje/Lenguaje.txt");
+            for (int i = 1; i <=10; i++){
                 
-                System.out.println("Creado el proceso " + i);
+                newProcess = Runtime.getRuntime().exec("java -jar "
+                        +"Lenguaje.jar " 
+                        + (i*10)
+                        + f.getPath());
+                
+                System.out.println("Creado el proceso " + i +"en archivo "+f.getAbsolutePath());
+                
                 //Mostramos en consola que hemos creado otro proceso               
             }
+            
         }catch (SecurityException ex){
             System.err.println("Ha ocurrido un error de Seguridad."+
                     "No se ha podido crear el proceso por falta de permisos.");

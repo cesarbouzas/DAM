@@ -82,9 +82,8 @@ public class Lenguaje {
             {
             bloqueo = rAf.getChannel().lock();
             for (int i = 0; i < n; i++) {
-                
-                s = "Proceso(" + (i + 1) + "/" + n + " palabras --->" +createWord();
-                rAf.writeUTF(s + "\n");
+                s ="Proceso(" + (i + 1) + "/" + n + " palabras --->" +createWord();
+                rAf.writeUTF(s +"\r");
                 System.out.println(s);
             }
             bloqueo.release();
