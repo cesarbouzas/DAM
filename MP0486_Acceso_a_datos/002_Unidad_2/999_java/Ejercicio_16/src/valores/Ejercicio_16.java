@@ -32,6 +32,8 @@ public class Ejercicio_16 {
         employees.add(new Employee("Gil", 1, 1500.60));
         employees.add(new Employee("Nunez", 3, 1325.60));
         RandomFile(new File("./src/datos"), "ficheroRAF.dat", employees);
+        
+        
 
     }
     public static void RandomFile(File dir, String nombre, List<Employee> e) {
@@ -46,7 +48,7 @@ public class Ejercicio_16 {
                 System.out.println(employee.getNumberEmployee()+" puntero--->"+rAF.getFilePointer());
                 apellido=new StringBuffer(employee.getSurname());
                 apellido.setLength(10);
-                rAF.writeUTF(apellido.toString());
+                rAF.writeChars(apellido.toString());
                 System.out.println(apellido+" puntero--->"+rAF.getFilePointer());
                 rAF.writeInt(employee.getDepartamentNumber());
                 System.out.println(employee.getDepartamentNumber()+" puntero--->"+rAF.getFilePointer());

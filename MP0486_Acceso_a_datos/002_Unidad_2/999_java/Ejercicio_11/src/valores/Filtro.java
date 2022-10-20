@@ -17,7 +17,6 @@ public class  Filtro implements FilenameFilter {
     
     @Override
     public boolean accept(File dir, String name) {
-        System.out.println(dir.getName());
         return name.startsWith(this.regExp);
         }
     }
