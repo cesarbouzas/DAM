@@ -14,21 +14,15 @@ public class Colaborar {
      */
     public static void main(String[] args) {
        Process newProcess;
-       File f=new File("");
-        System.out.println(f.getParentFile().getAbsolutePath());
-       
-        
+       File f=new File("archivo.txt");
+        System.out.println(f.getAbsolutePath());
          try{
-            for (int i = 1; i <=10; i++){
-                
-                newProcess = Runtime.getRuntime().exec("java -jar "
-                        +"Lenguaje.jar " 
-                        + (i*10)
-                        + f.getCanonicalPath());
-                
-                System.out.println("Creado el proceso " + i +"en archivo "+f.getCanonicalPath());
-                
-                //Mostramos en consola que hemos creado otro proceso               
+            for (int i = 10; i <=100; i=i+10){ 
+                newProcess = Runtime.getRuntime().exec("java -jar Lenguaje.jar "
+                        + i
+                        + f.getPath());
+                System.out.println(newProcess.info());
+                System.out.println(newProcess.exitValue());         
             }
             
         }catch (SecurityException ex){
