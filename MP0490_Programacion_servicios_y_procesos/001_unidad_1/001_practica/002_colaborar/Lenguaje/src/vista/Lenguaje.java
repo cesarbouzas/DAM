@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package vista;
 
+package vista;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +8,7 @@ import java.nio.channels.FileLock;
 
 /**
  *
- * @author Usuario
+ * @author Cesar bouzas
  */
 public class Lenguaje {
 
@@ -32,13 +28,13 @@ public class Lenguaje {
         File f = new File(r);
         String sOname = System.getProperty("os.name").toLowerCase();
         
-//        if (sOname.contains("win")) {  
-//            if (!r.isEmpty()) {
-//                f = new File(r.toLowerCase().replace("//", "\\"));
-//            } else {
-//                f = new File("c:\\FicheroDeLenguaje.txt");
-//            }
-//        }
+        if (sOname.contains("win")) {  
+            if (!r.isEmpty()) {
+                f = new File(r.toLowerCase().replace("//", "\\"));
+            } else {
+                f = new File("c:\\FicheroDeLenguaje.txt");
+            }
+        }
         if(!f.exists()){
             try{
                 f.createNewFile();
