@@ -31,12 +31,11 @@ public class Ejercicio_16 {
         employees.add(new Employee("bouzas", 1, 2325.60));
         employees.add(new Employee("Gil", 1, 1500.60));
         employees.add(new Employee("Nunez", 3, 1325.60));
-        RandomFile(new File("./src/datos"), "ficheroRAF.dat", employees);
-        
-        
-
-    }
-    public static void RandomFile(File dir, String nombre, List<Employee> e) {
+        employees.add(new Employee("Manuel",99,90000));
+        writeRandomFile(new File("src/datos"), "ficheroRAF.dat", employees);
+        readFieldFile(new File("src/datos"),"ficheroRAF.dat",4);
+       }
+    public static void writeRandomFile(File dir, String nombre, List<Employee> e) {
         File file=new File(dir.getPath()+"/"+nombre);
         StringBuffer apellido=null;
         try (
@@ -60,5 +59,33 @@ public class Ejercicio_16 {
             System.out.println("Error de entrada/Salida");
         } finally {
         }
+    }
+
+    public static void readFieldFile(File file, String fileName,int field) {
+         File f=new File(file.getAbsolutePath()+"/"+fileName);
+         int employeeLength=36;
+         int numEmployee;
+         char[] auxSurName=new char[10];
+         Employee eTemp=new Employee();
+         try(
+         RandomAccessFile rAF=new RandomAccessFile(f,"r");
+             )
+         {
+             
+             rAF.seek((field-1)*employeeLength);
+             System.out.println(rAF.getFilePointer());
+             numEmployee=rAF.readInt();
+             for(int i=0;i<10;i++){
+                auxSurName[i]= rAF.readChar();
+             }
+             eTemp.setSurname(String.valueOf(auxSurName));
+             eTemp.setDepartamentNumber(rAF.readInt());
+             eTemp.setSalary(rAF.readDouble());
+             System.out.println("+++++++++++++++Registro "+field+" leido+++++++++++++++++++++");
+             System.out.println("El emplado "+numEmployee+"-->"+eTemp.showData());
+         }catch(IOException e){
+             System.err.println("Error de entrada/salida");
+         }
+        
     }
 }
