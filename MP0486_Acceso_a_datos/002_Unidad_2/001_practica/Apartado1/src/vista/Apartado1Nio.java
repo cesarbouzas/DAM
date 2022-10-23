@@ -6,15 +6,11 @@
 //incluyendo los subdirectorios, que cumplan una determinada condición.
 package vista;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
+
+
 
 
 /**
@@ -29,7 +25,7 @@ public class Apartado1Nio {
     public static void main(String[] args) {
         Path path = Path.of("src/datos/salida.txt");
         crateFile(path);
-        archivosBuscar(Path.of("src/"));
+        archivosBuscar(Path.of("src/"),"s");
 
 
 }
@@ -56,15 +52,22 @@ public class Apartado1Nio {
         }
     }
     
-  static Path[] archivosBuscar(Path directory){
+  static Path[] archivosBuscar(Path directory ,String regExp){
         try {
          
-          Files.list(directory).filter(Files::isRegularFile).forEach(System.out::println);
+          Files.list(directory)
+                  .filter(Files::isRegularFile)
+                  //.filter(x->x.startsWith(regExp))
+                  .forEach(System.out::println);
+          Files.list(directory)
+                  .filter(Files::isDirectory)
+                  .map(subdir->archivosBuscar(subdir,regExp))
+                  .filter(x->x!=null)
+                  .forEach(System.out::println);
           
-            
-            
+          
         } catch (IOException ex) {
-            Logger.getLogger(Apartado1Nio.class.getName()).log(Level.SEVERE, null, ex);
+           ex.printStackTrace();
         }
         return null;
   }
