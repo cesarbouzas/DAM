@@ -1,0 +1,20 @@
+**********************Ficheros que empiezan por s ***************************
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build\classes\datos\salida.txt
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\src\datos\salida.txt
+**********************Ficheros de tamaño superior a 0 ***************************
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build\built-jar.properties
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build\classes\datos\salida.txt
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build\classes\Nuevo documento de texto.txt
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build\classes\vista\Apartado1Nio.class
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\build.xml
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\dist\Apartado1Nio.jar
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\dist\README.TXT
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\manifest.mf
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\nbproject\build-impl.xml
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\nbproject\genfiles.properties
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\nbproject\private\private.properties
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\nbproject\project.properties
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\nbproject\project.xml
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\src\datos\salida.txt
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\src\Nuevo documento de texto.txt
+C:\Users\Usuario\Desktop\html_public\DAM\MP0486_Acceso_a_datos\002_Unidad_2\001_practica\Apartado1\..\Apartado1\src\vista\Apartado1Nio.java

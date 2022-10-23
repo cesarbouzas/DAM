@@ -9,7 +9,9 @@ package vista;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -25,9 +27,13 @@ public class Apartado1Nio {
     public static void main(String[] args) {
         Path path = Path.of("src/datos/salida.txt");
         crateFile(path);
-        archivosBuscar(Path.of("src/"),"s");
-
-
+        ///Buscamos los archivos que cumplan dos condiciones
+        try{
+        findFilesStartsWith(Path.of("../"),"s",path);
+        findFilesSize(Path.of("../"),0,path);
+        }catch(IOException e){
+            System.out.println("Error de I/O ");
+        }
 }
    static void crateFile(Path path){
             try {
@@ -51,25 +57,31 @@ public class Apartado1Nio {
             System.out.println("Error al crear fichero o directorio");
         }
     }
+
     
-  static Path[] archivosBuscar(Path directory ,String regExp){
-        try {
-         
-          Files.list(directory)
-                  .filter(Files::isRegularFile)
-                  //.filter(x->x.startsWith(regExp))
-                  .forEach(System.out::println);
-          Files.list(directory)
-                  .filter(Files::isDirectory)
-                  .map(subdir->archivosBuscar(subdir,regExp))
-                  .filter(x->x!=null)
-                  .forEach(System.out::println);
-          
-          
-        } catch (IOException ex) {
-           ex.printStackTrace();
-        }
-        return null;
+  static List<Path> findFilesStartsWith  (Path directory ,String regExp,Path fileWrite) throws IOException{
+            Files.writeString(fileWrite,"**********************Ficheros que empiezan por "+ regExp+" ***************************\n");
+                  return Files.find(directory,Integer.MAX_VALUE,(path,atr)->atr.isRegularFile()&& path.getFileName().toString().startsWith(regExp))
+                  .peek(x->{
+                try {
+                    Files.writeString(fileWrite,x.toFile().getAbsolutePath()+"\n",StandardOpenOption.APPEND);
+                } catch (IOException ex) {
+                    System.out.println("Errode escritura");
+                }
+            })
+                  .collect(Collectors.toList());
   }
-    
-}
+  static List<Path> findFilesSize (Path directory, int size,Path fileWrite)throws IOException{
+      List<Path> result=null;
+            Files.writeString(fileWrite,"**********************Ficheros de tamaño superior a "+ size+" ***************************\n",StandardOpenOption.APPEND);
+           return Files.find(directory,Integer.MAX_VALUE,(path,attr)->attr.isRegularFile()&&attr.size()>=size)
+                .peek(x->{
+          try {
+              Files.writeString(fileWrite,x.toFile().getAbsolutePath()+"\n",StandardOpenOption.APPEND);
+          } catch (IOException ex) {
+             System.out.println("Errode escritura");
+          }
+      })
+               .collect(Collectors.toList());
+  }
+  }
