@@ -60,8 +60,8 @@ public class Apartado1_IO {
         File[] files= d.listFiles();
         
        for(File f:files){
-           if(f.exists()&& f.isFile()){
-            lOF.add((File) Arrays.asList(f.listFiles(filter)));
+           if(f.exists()&& f.isFile()&&f!=null){
+            lOF.add(Arrays.asList(f.listFiles(filter)));
            }else if(f.exists()&&f.isDirectory()){
               findFileStartWith(f,s,lOF);
            }
