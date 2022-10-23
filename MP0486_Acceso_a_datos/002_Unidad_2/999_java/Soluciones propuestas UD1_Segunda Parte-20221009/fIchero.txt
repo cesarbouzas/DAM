@@ -1,0 +1,2 @@
+Este fichero contiene información.
+Es el primer fichero para trabajar con AD.
