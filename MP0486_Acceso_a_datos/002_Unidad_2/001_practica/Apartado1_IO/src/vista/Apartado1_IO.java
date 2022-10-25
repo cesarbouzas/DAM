@@ -25,10 +25,14 @@ public class Apartado1_IO {
         ArrayList<File> listOfFiles = null;
         File f=new File("src/datos/salida.txt");//Fichero de salida
         File d=new File("src/");//Directorio donde vamos a buscar los archivos
-        step1(f);//paso 1 creamos el fichero y hacemos las comprobaciones pertinentes
-         listOfFiles=findFileStartWith(d,"s",listOfFiles);
-         listOfFiles.forEach(System.out::println);
-        
+//        step1(f);//paso 1 creamos el fichero y hacemos las comprobaciones pertinentes
+//        listOfFiles= findFileStartWith(d,"s",listOfFiles);
+//         listOfFiles.forEach(System.out::println);
+
+  for(File fo:f.listFiles(new FilterStartsWith("s"))){
+      System.out.println(fo.getName());
+   listOfFiles.add(fo);
+           }  
     }
     
     static boolean createFile(String s) throws IOException{
@@ -55,18 +59,25 @@ public class Apartado1_IO {
     }
     
     
-    static ArrayList<File> findFileStartWith(File d, String s,ArrayList lOF){
+    static ArrayList<File> findFileStartWith(File d, String s,ArrayList<File> arrayList){
         FilterStartsWith filter=new FilterStartsWith(s);
         File[] files= d.listFiles();
-        
+        File[] filesFiltred;
        for(File f:files){
-           if(f.exists()&& f.isFile()&&f!=null){
-            lOF.add(Arrays.asList(f.listFiles(filter)));
+           System.out.println(f.getName());
+           if(f.exists()&& f.isFile()){
+               System.out.println(f.getName()+"es un fichero");
+                filesFiltred=f.listFiles(filter);
+                    for(File fF:filesFiltred ){
+                            System.out.println(fF.getName());
+                            arrayList.add(fF);
+                    }
            }else if(f.exists()&&f.isDirectory()){
-              findFileStartWith(f,s,lOF);
+               System.out.println(f.getName()+" es un directorio");
+              findFileStartWith(f,s,arrayList);
            }
        }
-       return lOF;
+       return arrayList;
     }
     public static void step1(File f){
     try {
@@ -86,13 +97,15 @@ public class Apartado1_IO {
 class FilterStartsWith implements FileFilter{
     private String prefix;
     FilterStartsWith(String s){
-    this.prefix=s;
+    this.prefix=s.trim();
     }
     @Override
     public boolean accept(File f) {
         if(f.isFile()){
+            System.out.println(f.getName()+" pasa el filtro");
         return f.getName().startsWith(prefix);
     }
+        System.out.println(f.getName()+" no pasa el filtro");
         return false;
     }
     

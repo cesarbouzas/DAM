@@ -14,7 +14,7 @@ public class Ejercicio6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        File f=new File("./Deporte");
+        File f=new File("../");
         File[] archivos=f.listFiles();
         if(f.exists()&& f.isDirectory()){
             try{
