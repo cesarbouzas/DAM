@@ -32,7 +32,7 @@ public class Ejercicio_18_leer_xml {
             dB = dBFactory.newDocumentBuilder();         
             Document doc=dB.parse(f);
             doc.getDocumentElement().normalize();
-            doc.getDocumentElement().getNodeName();
+            
             NodeList nList=doc.getElementsByTagName("alumno");
             
                  System.out.println("----------------------------");
