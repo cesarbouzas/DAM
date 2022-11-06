@@ -12,6 +12,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 
 
 
@@ -25,7 +40,7 @@ public class Apartado2_IO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-   int op=0;      
+   int op;      
    File f=new File("src/datos/empleados.dat"); 
    createFile(f);
    ArrayList<Employee> employees=createListEmployee();
@@ -34,20 +49,21 @@ public class Apartado2_IO {
    }catch(FileNotFoundException e){
        System.out.println("Error de Fichero");
    }
-   op=showMenu();
-   switch (op){
+   do{
+    op=showMenu();
+     switch (op){
        case 1:
        {
            try {
                readFileEmployee(f);
            } catch (IOException ex) {
-               System.out.println("Fin de Fcihero");
+               System.out.println("Fin de Fichero");
            }
        }
            break;
 
        case 2:
-           System.out.println("Código de emplado ?");
+           System.out.println("Código del empleado ?");
            Scanner sc=new Scanner(System.in);
        {
            int op2=sc.nextInt();
@@ -59,16 +75,19 @@ public class Apartado2_IO {
        }
            break;
        case 3:
-           System.out.println("Fin del programa");
+           createXmlEmployees(employees);
            break;
-           
-   
+       case 4:
+           System.out.println("Fin del programa");
+          
+            }        
+    }while(op!=4);
    }
         
 
-    }
+    
     public static ArrayList<Employee> createListEmployee(){
-        Employee e1=new Employee("cesar","A coruña",2500.45f,0.20f);
+      Employee e1=new Employee("cesar","A coruña",2500.45f,0.20f);
       Employee e2=new Employee("Natividad", "Novoa Santos",1395.56f,0.1f);
       Employee e3=new Employee("Jose Antonio","Feas",1495.48f, 0.23f);
       Employee e4=new Employee("Sopelana", "Santander",2598.45f, 0.25f);
@@ -84,16 +103,15 @@ public class Apartado2_IO {
     }
     
     
-    
-    
   public static int  showMenu(){
       int op=0;
       Scanner sc=new Scanner(System.in);
       while(op<1||op>3){
       System.out.println("********************Menu Emplados************************");
       System.out.println("1.-Visualizar todos los empleados");
-      System.out.println("2.-Visualizar un emplado.(Buscarlo por su código");
-      System.out.println("3.-Salir");
+      System.out.println("2.-Visualizar un emplado.(Buscarlo por su código)");
+      System.out.println("3.-Crear fichero XML");
+      System.out.println("4.-Salir");
       System.out.print(" Elige una opción ?");
       op=sc.nextInt();
       }
@@ -105,6 +123,7 @@ public class Apartado2_IO {
             if(f.getParentFile().mkdir()){
                 try {
                     f.createNewFile();
+                    System.out.println("Fichero .dat creado...");
                 } catch (IOException iOE) {
                     System.err.println("Error de I/O en creacion de fichero "+f.getName());
                 }
@@ -130,7 +149,7 @@ public class Apartado2_IO {
         for(Employee e:empleados){
           try {
               rAF.writeBytes(e.toString()+"\n");
-              System.out.println(e+" almacenado en fichero");
+             
           } catch (IOException ex) {
               System.out.println("Error de escritura en Random Acces File");
           }
@@ -150,7 +169,7 @@ public class Apartado2_IO {
       String line=null;
       for(int i=0;i<=5;i++){
           line=rAF.readLine();
-          if(i==cod){
+          if(i==cod-1){
                  System.out.println(line);
           }
       }
@@ -165,16 +184,50 @@ public class Apartado2_IO {
       }
       return op;
   }
+      
+      public static void createXmlEmployees( ArrayList<Employee> employees){
+        try {
+            File f=new File("src/datos/employees.xml");
+            createFile(f);
+            DocumentBuilderFactory dBFactory=DocumentBuilderFactory.newInstance();
+            DocumentBuilder db=dBFactory.newDocumentBuilder();
+            Document doc=db.newDocument();
+            doc.normalize();
+            Element root=doc.createElement("empleados");
+            doc.appendChild(root);
+            for(Employee e:employees){
+                createSchema(doc, root, e);
+            }
+            DOMSource source=new DOMSource(doc);
+            StreamResult result =new StreamResult(f);
+            TransformerFactory tf=TransformerFactory.newInstance();
+            Transformer t=tf.newTransformer();
+            t.transform(source, result);
+            
+            
+        } catch (ParserConfigurationException ex) {
+            System.out.println("Error de parseador");
+        } catch (TransformerConfigurationException ex) {
+            System.out.println("Erro de configuracion de Transformer");
+        } catch (TransformerException ex) {
+            System.out.println("Error genral transformer");
+        }
+      }
   
-  }
+      public static Element createElement(Document doc ,Element parent,String name,String text){
+      Element e=doc.createElement(name);
+      e.setTextContent(text);
+      parent.appendChild(e);
+      return e;
+      }
+      public static void createSchema(Document doc,Element root,Employee em){
+             Element e=createElement(doc, root, "Empleado",null);
+            createElement(doc,e,"Codigo",""+em.getCod());
+            createElement(doc, e,"Nombre" , em.getName());
+            createElement(doc,e,"Salary",""+em.getSalary());
+            createElement(doc,e,"Comison",""+em.getComision());
+            
+      }
+}
 
-      
-      
-    
-   
-    
-    
-    
-    
-    
-
+  
