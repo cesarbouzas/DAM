@@ -58,7 +58,6 @@ public class Apartado2_IO {
            }
        }
            break;
-
        case 3:
            System.out.println("Fin del programa");
            break;
