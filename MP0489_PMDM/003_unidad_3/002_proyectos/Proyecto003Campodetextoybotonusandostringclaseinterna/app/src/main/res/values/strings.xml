@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Proyecto 002. Campo de texto y boton usando @string</string>
+    <string name="et_mensaje_escribe">Escribe el mensaje</string>
+    <string name="b_enviar_enviar">Enviar</string>
+    <string name="texto">txto</string>
+</resources>
