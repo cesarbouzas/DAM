@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="EjemploInterfazHotel.jnlp">
+  <information>
+    <title>EjemploInterfazHotel</title>
+    <vendor>Agustin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="EjemploInterfazHotel.jar" size="32405" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="ejemplointerfazhotel.EjemploInterfazHotel"  name="EjemploInterfazHotel" />
+  <update check="always"/>
+</jnlp>
