@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="674.0" prefWidth="562.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="apuntes.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="674.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apuntes.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Label layoutX="26.0" layoutY="54.0" text="DNI">
@@ -78,7 +78,7 @@
          </font>
       </Label>
       <ComboBox fx:id="comboBox" layoutX="365.0" layoutY="464.0" prefHeight="26.0" prefWidth="168.0" />
-      <CheckBox layoutX="231.0" layoutY="501.0" mnemonicParsing="false" text="Fumador">
+      <CheckBox fx:id="check" layoutX="231.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleCheckbox" text="Fumador">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -95,7 +95,7 @@
       </Label>
       <RadioButton layoutX="45.0" layoutY="576.0" mnemonicParsing="false" text="Media Pensión" toggleGroup="$Opciones" />
       <RadioButton layoutX="46.0" layoutY="599.0" mnemonicParsing="false" text="Pensión completa" toggleGroup="$Opciones" />
-      <Label alignment="TOP_LEFT" layoutX="208.0" layoutY="536.0" prefHeight="20.0" prefWidth="348.0" text="En virtud de la ley de sanidad se informa a los clientes de que solo" textFill="#ef0b0b">
+      <Label fx:id="labelAviso" alignment="TOP_LEFT" layoutX="208.0" layoutY="536.0" prefHeight="20.0" prefWidth="348.0" text="En virtud de la ley de sanidad se informa a los clientes de que solo" textFill="#ef0b0b">
          <font>
             <Font size="11.0" />
          </font>

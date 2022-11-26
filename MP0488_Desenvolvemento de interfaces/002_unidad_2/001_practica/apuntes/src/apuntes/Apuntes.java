@@ -20,8 +20,8 @@ public class Apuntes extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
+        Parent root2 = FXMLLoader.load(getClass().getResource("FormualrioPrincipal.fxml"));
+        Scene scene = new Scene(root2);
         
         stage.setScene(scene);
         stage.show();
