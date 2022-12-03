@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnC1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondActivity">
+
+    <ImageView
+        android:id="@+id/imageViewCetagoria"
+        android:layout_width="99dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textViewCategoria"
+        android:layout_width="260dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="texto"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCetagoria"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCetagoria" />
+
+    <Button
+        android:id="@+id/buttonC1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="84dp"
+        android:onClick="anadirProducto1"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoria" />
+
+    <TextView
+        android:id="@+id/textViewC1"
+        android:layout_width="194dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/buttonC1"
+        app:layout_constraintTop_toTopOf="@+id/buttonC1" />
+
+
+    <Button
+        android:id="@+id/buttonC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="16dp"
+        android:onClick="anadirProducto2"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="@+id/buttonC1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC1" />
+
+    <TextView
+        android:id="@+id/textViewC2"
+        android:layout_width="196dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/buttonC2"
+        app:layout_constraintTop_toTopOf="@+id/buttonC2" />
+
+    <Button
+        android:id="@+id/buttonC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="14dp"
+        android:text="Button"
+        android:onClick="anadirProducto3"
+        app:layout_constraintStart_toStartOf="@+id/buttonC2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC2" />
+
+    <TextView
+        android:id="@+id/textViewC3"
+        android:layout_width="192dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/buttonC3"
+        app:layout_constraintTop_toTopOf="@+id/buttonC3" />
+    <Button
+        android:id="@+id/buttonC4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="14dp"
+        android:text="Button"
+        android:onClick="anadirProducto4"
+        app:layout_constraintStart_toStartOf="@+id/buttonC3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC3" />
+
+    <TextView
+        android:id="@+id/textViewC4"
+        android:layout_width="193dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/buttonC4"
+        app:layout_constraintTop_toTopOf="@+id/buttonC4" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="56dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoria" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Volver"
+        android:onClick="finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
