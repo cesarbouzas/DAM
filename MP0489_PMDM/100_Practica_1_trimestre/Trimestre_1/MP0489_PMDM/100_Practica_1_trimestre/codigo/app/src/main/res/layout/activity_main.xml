@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonFrutas"
+            android:layout_width="209dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="80dp"
+            android:onClick="mostrarCategoria"
+            android:text="Frutas y verduras"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCosmetica"
+            android:layout_width="183dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="24dp"
+            android:onClick="mostrarCategoria"
+            android:text="Cosmetica"
+            app:layout_constraintEnd_toEndOf="@+id/radioButtonFrutas"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/radioButtonFrutas"
+            app:layout_constraintTop_toBottomOf="@+id/radioButtonFrutas" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAlergenos"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="24dp"
+            android:onClick="mostrarCategoria"
+            android:text="Productos sin alergenos"
+            app:layout_constraintEnd_toEndOf="@+id/radioButtonProximidad"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/radioButtonProximidad"
+            app:layout_constraintTop_toBottomOf="@+id/radioButtonProximidad" />
+
+
+        <RadioButton
+            android:id="@+id/radioButtonProximidad"
+            android:layout_width="194dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="24dp"
+            android:onClick="mostrarCategoria"
+            android:text="Productos Proximidad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioButtonCosmetica" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="314dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
+        android:text="Seleccione Categoria :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
