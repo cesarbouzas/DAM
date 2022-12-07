@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">txto_boton</string>
+    <string name="et_mensaje_escribe" >escribe un mensaje</string>
+    <string name="b_enviar_enviar">Enviar</string>
+</resources>
