@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">checkbox</string>
+    <string name="cb_txt_fresa">Fresa</string>
+    <string name="cb_txt_manzana">Manzana</string>
+    <string name="cb_txt_naranja">Naranaja</string>
+    <string name="cb_txt_pera">Pera</string>
+    <string name="btn_txt_comer">Comer</string>
+</resources>

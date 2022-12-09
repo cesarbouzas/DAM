@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RadioButton</string>
+    <string name="rb_txt_red">rojo</string>
+    <string name="rb_txt_green">verde</string>
+    <string name="rb_txt_blue">azul</string>
+</resources>

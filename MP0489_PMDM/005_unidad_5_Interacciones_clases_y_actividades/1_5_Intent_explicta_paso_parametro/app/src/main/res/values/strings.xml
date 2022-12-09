@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PasoParametro</string>
+    <string name="btn_txt_ir">Ir</string>
+    <string name="et_txt_url">Indique Url</string>
+</resources>

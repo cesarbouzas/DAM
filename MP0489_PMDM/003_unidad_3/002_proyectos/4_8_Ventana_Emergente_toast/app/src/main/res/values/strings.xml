@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ventana_Emergente</string>
+    <string name="msg_intro_texto">Escribe un mensaje</string>
+    <string name="btn_Label_mensaje">Enviar</string>
+</resources>

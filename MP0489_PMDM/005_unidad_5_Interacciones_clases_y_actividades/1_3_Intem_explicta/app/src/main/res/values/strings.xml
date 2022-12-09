@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Intent Sencillo</string>
+    <string name="btb_txt_ir_segunda_ventana">Ir a la segund aventana</string>
+    <string name="btn_txt_finlizar">Finalizar</string>
+</resources>

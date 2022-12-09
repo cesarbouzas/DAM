@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/teal_700"
+
+    >
+
+
+    <TextView
+        android:id="@+id/tv_label1"
+        android:layout_width="139dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/msg_intro_texto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:background="@android:color/holo_blue_dark"
+        />
+
+    <EditText
+        android:id="@+id/et_mensaje"
+        android:layout_width="219dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toEndOf="@+id/tv_label1"
+        app:layout_constraintTop_toTopOf="@+id/tv_label1"/>
+
+    <Button
+        android:id="@+id/btn_Enviar"
+        android:layout_width="241dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/btn_Label_mensaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_mensaje" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="325dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="168dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Enviar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
