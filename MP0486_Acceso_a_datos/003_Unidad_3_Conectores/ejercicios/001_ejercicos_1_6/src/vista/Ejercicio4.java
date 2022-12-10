@@ -6,6 +6,7 @@ import controlador.Pool;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
 import modelo.Departamento;
 
 /**
@@ -53,7 +54,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nEmpleados = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,13 +69,19 @@ public class Ejercicio4 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartamentoActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("Número empleados");
 
         nEmpleados.setText("0");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,52 +120,37 @@ public class Ejercicio4 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent event){
-    
-        if(cmbDepartamento.getSelectedItem()!=null){
-            GestionDepartamento.listarEmpladosyCuenta((Departamento)cmbDepartamento.getSelectedItem(), jTextArea1, nEmpleados);
+    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+           if(cmbDepartamento.getSelectedItem()!=null){
+            GestionDepartamento.listarEmpladosyCuenta((Departamento)cmbDepartamento.getSelectedItem(), txtArea, nEmpleados);
         }
         Pool.Cerrar();
-    }
+    }//GEN-LAST:event_cmbDepartamentoActionPerformed
 
-        
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
+ 
+
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     try{
+         for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+         {
+             if("Nimbus".equals(info.getName())){
+                 javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                 break;
+             }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+         }catch(ClassNotFoundException ex){
+           System.out.println("Error , clase no encontrada");
+         }catch(InstantiationException ex){
+             System.out.println("Error, instanciacion");
+         }catch(IllegalAccessException ex){
+             System.out.println("Error, acceso Ilegal");
+         }catch(UnsupportedLookAndFeelException ex){
+             System.out.println("Error, Look and feel fallo");
+         }           
+       
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ejercicio4().setVisible(true);
@@ -171,7 +163,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel nEmpleados;
+    private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ public class Pool {
     static Connection Con;
     static BasicDataSource basicdatasource = new BasicDataSource();
     private static final String BD = "ejemplo";//*******Indica la BD **************
-    private static final String IP = "192.168.6.231";//*******Indica la IP ***************
+    private static final String IP = "192.168.75.231";//*******Indica la IP ***************
 
     public static Connection IniciaPoolconFichero() throws SQLException {
         try {

@@ -22,15 +22,18 @@ public class GestionDepartamento {
     public static void cargarCombo(JComboBox<Departamento> cmbDepartamento){
         Departamento d;
         try{
+            cmbDepartamento.removeAllItems();
             String consulta="Select * from departamentos";
-            Statement sentencia=Pool.getCurrentConexion().createStatement();
-            ResultSet rs=sentencia.executeQuery(consulta);
-            cmbDepartamento.addItem(null);
-            while(rs.next()){
-                d=new Departamento(rs.getInt(1),rs.getString(2),rs.getString(3));
-                cmbDepartamento.addItem(d);
+            ResultSet rs;
+            try (Statement sentencia = Pool.getCurrentConexion().createStatement()) {
+                rs = sentencia.executeQuery(consulta);
+                cmbDepartamento.addItem(null);
+                while(rs.next()){
+                    d=new Departamento(rs.getInt(1),rs.getString(2),rs.getString(3));
+                    cmbDepartamento.addItem(d);
+                }
+                cmbDepartamento.removeItemAt(0);
             }
-            sentencia.close();
             rs.close();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error de concexion base de Datos");
@@ -41,7 +44,7 @@ public class GestionDepartamento {
    }
     public static void listarEmpladosyCuenta(Departamento d, JTextArea txtArea,JLabel nEmpleados){
     String consulta,consultaCuantos;
-    txtArea.setText("");
+    txtArea.setText("Resultados/n");
     consulta="Select * from empleados e inner join departamentos d on e.dept_no=d.dept_no where d.dept_no="+d.getNum();
     consultaCuantos="Select count(*) from empleados where dept_no="+d.getNum();
     ResultSet rs;
