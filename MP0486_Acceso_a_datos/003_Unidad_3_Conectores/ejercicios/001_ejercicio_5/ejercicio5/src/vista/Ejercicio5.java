@@ -9,13 +9,15 @@ import controlador.Pool;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import modelo.Departamento;
 
 /**
  *
  * @author Usuario
  */
 public class Ejercicio5 extends javax.swing.JFrame {
-    DefaultComboBoxModel<String> jcmModel=new DefaultComboBoxModel<>();
+    DefaultComboBoxModel<String> jcmModelString=new DefaultComboBoxModel<>();
+    DefaultComboBoxModel<Departamento> jcmModelDepartamento=new DefaultComboBoxModel<>();
     /**
      * Creates new form ejercicio5
      */
@@ -23,8 +25,10 @@ public class Ejercicio5 extends javax.swing.JFrame {
         try{
         Pool.IniciaPool();
         initComponents();
-        nDepartament.setModel(jcmModel);
-            GestionDepartamento.cargarNDepartamentoCombo(nDepartament);
+        jcbNDepartament.setModel(jcmModelString);
+        jcbDepartamento.setModel(jcmModelDepartamento);
+        GestionDepartamento.cargarNDepartamentoCombo(jcbNDepartament);
+        GestionDepartamento.cargarDepartamentoCombo(jcbDepartamento);
         }catch(SQLException e){
         JOptionPane.showMessageDialog(null,"error de Sql");
         }finally{
@@ -42,13 +46,14 @@ public class Ejercicio5 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nDepartament = new javax.swing.JComboBox<>();
+        jcbNDepartament = new javax.swing.JComboBox<>();
+        jcbDepartamento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nDepartament.addActionListener(new java.awt.event.ActionListener() {
+        jcbNDepartament.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nDepartamentActionPerformed(evt);
+                jcbNDepartamentActionPerformed(evt);
             }
         });
 
@@ -58,23 +63,27 @@ public class Ejercicio5 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(nDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addComponent(jcbNDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
+                .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(nDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbNDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(235, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nDepartamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nDepartamentActionPerformed
+    private void jcbNDepartamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNDepartamentActionPerformed
   
-    }//GEN-LAST:event_nDepartamentActionPerformed
+    }//GEN-LAST:event_jcbNDepartamentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +120,7 @@ public class Ejercicio5 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> nDepartament;
+    private javax.swing.JComboBox<Departamento> jcbDepartamento;
+    private javax.swing.JComboBox<String> jcbNDepartament;
     // End of variables declaration//GEN-END:variables
 }
