@@ -29,6 +29,9 @@ public class Ejercicio5 extends javax.swing.JFrame {
         jcbDepartamento.setModel(jcmModelDepartamento);
         GestionDepartamento.cargarNDepartamentoCombo(jcbNDepartament);
         GestionDepartamento.cargarDepartamentoCombo(jcbDepartamento);
+        Departamento d=(Departamento)jcbDepartamento.getSelectedItem();
+        txtPNombre.setText(d.getNombre());
+        txtPLocalidad.setText(d.getLocalizacion());
         }catch(SQLException e){
         JOptionPane.showMessageDialog(null,"error de Sql");
         }finally{
@@ -48,6 +51,14 @@ public class Ejercicio5 extends javax.swing.JFrame {
 
         jcbNDepartament = new javax.swing.JComboBox<>();
         jcbDepartamento = new javax.swing.JComboBox<>();
+        lfNumero1 = new javax.swing.JLabel();
+        lfNumero2 = new javax.swing.JLabel();
+        lfLocalidad = new javax.swing.JLabel();
+        lfNombre = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPLocalidad = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtPNombre = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,16 +68,49 @@ public class Ejercicio5 extends javax.swing.JFrame {
             }
         });
 
+        jcbDepartamento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbDepartamentoItemStateChanged(evt);
+            }
+        });
+
+        lfNumero1.setText("Número");
+
+        lfNumero2.setText("Número");
+
+        lfLocalidad.setText("Localidad");
+
+        lfNombre.setText("Nombre");
+
+        jScrollPane1.setViewportView(txtPLocalidad);
+
+        jScrollPane2.setViewportView(txtPNombre);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jcbNDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lfNumero1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbNDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                        .addComponent(lfNumero2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lfLocalidad)
+                            .addComponent(lfNombre))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1))
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,8 +118,18 @@ public class Ejercicio5 extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbNDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(235, Short.MAX_VALUE))
+                    .addComponent(jcbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lfNumero1)
+                    .addComponent(lfNumero2))
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lfNombre)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lfLocalidad)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         pack();
@@ -84,6 +138,12 @@ public class Ejercicio5 extends javax.swing.JFrame {
     private void jcbNDepartamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNDepartamentActionPerformed
   
     }//GEN-LAST:event_jcbNDepartamentActionPerformed
+
+    private void jcbDepartamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbDepartamentoItemStateChanged
+       Departamento d=(Departamento)jcbDepartamento.getSelectedItem();
+        txtPNombre.setText(d.getNombre());
+        txtPLocalidad.setText(d.getLocalizacion());
+    }//GEN-LAST:event_jcbDepartamentoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -120,7 +180,15 @@ public class Ejercicio5 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<Departamento> jcbDepartamento;
     private javax.swing.JComboBox<String> jcbNDepartament;
+    private javax.swing.JLabel lfLocalidad;
+    private javax.swing.JLabel lfNombre;
+    private javax.swing.JLabel lfNumero1;
+    private javax.swing.JLabel lfNumero2;
+    private javax.swing.JTextPane txtPLocalidad;
+    private javax.swing.JTextPane txtPNombre;
     // End of variables declaration//GEN-END:variables
 }

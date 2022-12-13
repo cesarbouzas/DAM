@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import modelo.Departamento;
@@ -73,5 +71,22 @@ public class GestionDepartamento {
         
     
     }
+    public static Departamento buscarDepartamento(int n){
+    Departamento d=null;
+    String consulta="select * from departamentos where id="+n;
+    ResultSet rs;
+    try(Statement sentendia=Pool.getCurrentConexion().createStatement()){
+        rs=sentendia.executeQuery(consulta);
+        d=new Departamento();
+        d.setnDepartamneto(rs.getInt(1));
+        d.setNombre(rs.getString(2));
+        d.setLocalizacion(rs.getString(3));
+       
+    }   catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"Error al buscar el departamento por ID");
+        }
+    return d;
+    }
+    
     
 }
