@@ -1,0 +1,1 @@
+Escribe un programa que obtenga información un fichero dado , en este caso “fichero.txt”

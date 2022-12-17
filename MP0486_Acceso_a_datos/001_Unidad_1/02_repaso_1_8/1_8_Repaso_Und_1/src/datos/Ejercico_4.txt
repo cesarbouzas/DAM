@@ -1,0 +1,4 @@
+Escribe un programa que permita visualizar todos los archivos que empiecen con la letra “E” en un
+directorio concreto. Muestra de cada uno de ellos su nombre y tamaño.
+Recuerda que primero debes crear el filtro y a continuación aplicarlo al método list o listfiles.
+
